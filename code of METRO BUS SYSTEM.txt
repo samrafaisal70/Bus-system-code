@@ -1,0 +1,433 @@
+#include "stdafx.h"
+#include<iostream>
+#include<string>
+using namespace std;
+classsch
+{
+protected:
+int p;
+public:
+sch()
+ {
+  p = 0;
+ }
+sch(int a)
+ {
+  p = a;
+ }
+voidtime_disp()
+ {
+cout<< "\t" << "SCEDULE" << endl;
+cout<< "Opening Time:" << endl;
+cout<< "6:15 A.M" << endl;
+cout<< "Closing Time:" << endl;
+cout<< "10:00 P.M" << endl;
+cout<< "Days a week:" << endl;
+cout<< "Seven Days" << endl;
+cout<< "Ticket Price:" << endl;
+cout<< "Rs. 20" << endl;
+cout<<endl<<endl;
+ }
+};
+
+classstation:publicsch
+{
+protected:
+int a;
+public:
+station()
+{
+	a=0;
+}
+station(int n)
+{
+	a=n;
+}
+public:
+	void route()
+ {
+	cout<<"\t\t\t"<<"The bus will arrive after each 30 minutes"<<endl;
+	cout<<"\t\t\t"<<"The time of arrival of next 24 buses is following:"<<endl;
+cout<< "\t\t\t" << " Total routes of metro bus: 6 " << endl;
+cout<< "Select your route" << endl;
+cout<<"BUS#NO   From                TO                    TIME          DATE     "<<endl;
+cout<< " 0       SaddarMarrirChowk          06:00AM       17-5-2017"<< endl;
+cout<<" 02      MarrirChowkLiaquatBagh          06:30AM       17-5-2017" << endl;
+cout<<" 03      LiaguatBagh        Committee Chowk       07:00AM       17-5-2017" << endl;
+cout<<" 04      Committee           ChowkWaris Khan      07:30AM       17-5-2017" << endl;
+cout<<" 05      Waris Khan          ChandniChowk         08:00AM       17-5-2017" << endl;
+cout<<" 06      ChandniChowkRehmanabad            08:30AM       17-5-2017" << endl;
+cout<< " 07      SaddarMarrirChowk          09:00AM       17-5-2017"<< endl;
+cout<<" 08      MarrirChowkLiaquatBagh          09:30AM       17-5-2017" << endl;
+cout<<" 09      LiaquatBagh        Committee Chowk       10:00AM       17-5-2017" << endl;
+cout<<" 10      Committee ChowkWaris Khan            10:30AM       17-5-2017" << endl;
+cout<<" 11      Waris Khan          ChandniChowk         11:00AM       17-5-2017" << endl;
+cout<<" 12      ChandniChowkRehmanabad            11:30AM       17-5-2017" << endl;
+cout<< " 13      MarrirChowkSaddar                06:15AM       17-5-2017"<< endl;
+cout<<" 14      LiaquatBaghMarrirChowk          06:43AM       17-5-2017" << endl;
+cout<<" 15      CommiteeChowkLiaquatBagh          07:16AM       17-5-2017" << endl;
+cout<<" 16      Waris Khan          Committee Chowk       07:48AM       17-5-2017" << endl;
+cout<<" 17      ChandniChowkWaris Khan            08:11AM       17-5-2017" << endl;
+cout<<" 18      RehmanabadChandniChowk         08:15AM       17-5-2017" << endl;
+cout<< " 19      MarrirChowkSaddar                09:15AM       17-5-2017"<< endl;
+cout<<" 20      LiaquatBaghMarrirChowk          09:43AM       17-5-2017" << endl;
+cout<<" 21      Committee ChowkLiaquatchowk         10:17AM       17-5-2017" << endl;
+cout<<" 22      Waris Khan          Committee  Chowk      10:46AM       17-5-2017" << endl;
+cout<<" 23      ChandniChowkWaris Khan            11:11AM       17-5-2017" << endl;
+cout<<" 24      RehmanabadChandniChowk         11:45AM       17-5-2017" << endl;
+
+ }
+
+	void wait()
+	{
+		cout<<"\t\t\t"<<"At each stop the bus will stop for almost 14 to 18 minutes depending upon the time required to reach next station"<<endl;
+		cout<<"At SADDAR: Bus will stop for 15 minutes"<<endl;
+		cout<<"At MARRIR CHOWK: Bus will stop for 13 minutes"<<endl;
+		cout<<"At LIAQUAT BAGH: Bus will stop for 17 minutes"<<endl;
+		cout<<"COMMITTEE CHOWK: Bus will stop for 16 minutes"<<endl;
+		cout<<"At WARIS KHAN: Bus will stop for 18 minutes"<<endl;
+		cout<<"At CHANDNI CHOWK: Bus will stop for 11 minutes"<<endl;
+		cout<<"At REHMANABAD: Bus will stop for 15 minutes"<<endl;
+	}
+	void dis()
+	{
+		cout<<"1.From Saddar to MarrirChowk: (15 minutes)"<<endl;
+		cout<<"2.From MarrirChowk to LiaquatBagh: (15 minutes)"<<endl;
+		cout<<"3.From LiaguatBagh to Committee Chowk: (15 minutes)"<<endl;
+		cout<<"4.From Committee Chowk to Waris Khan: (15 minutes)"<<endl;
+		cout<<"5.From Waris Khan to ChandniChowk: (15 minutes)"<<endl;
+		cout<<"6.From ChandniChowk to Rehmanabad: (15 minutes)"<<endl;
+		
+}
+	};
+classtick:public station
+{
+charbusn[5], driver[10], arrival[5], depart[5], from[10], to[10],
+seat[8][4][10];
+public:
+void install();
+void allotment();
+void empty();
+void show();
+void position(int i);
+}
+bus[10];
+voidvline(char ch)
+{
+for (int i = 80;i>0;i--)
+cout<<ch;
+}
+void tick::install()
+{
+cout<< "Enter bus no: ";
+cin>> bus[p].busn;
+cout<< "\nEnter Driver's name: ";
+cin>> bus[p].driver;
+cout<< "\nArrival time: ";
+cin>> bus[p].arrival;
+cout<< "\nDeparture: ";
+cin>> bus[p].depart;
+cout<< "\nFrom: \t\t\t";
+cin>> bus[p].from;
+cout<< "\nTo: \t\t\t";
+cin>> bus[p].to;
+bus[p].empty();
+p++;
+}
+void tick::allotment()
+{
+int seat;
+char number[5];
+top:
+cout<< "Bus no: ";
+cin>> number;
+int n;
+for (n = 0;n <= p;n++)
+ {
+if (strcmp(bus[n].busn, number) == 0)
+break;
+ }
+while (n <= p)
+ {
+cout<< "\nSeat Number: ";
+cin>> seat;
+if (seat>32)
+  {
+cout<< "\nThere are only 32 seats available in this bus.";
+  }
+else
+  {
+if (strcmp(bus[n].seat[seat / 4][(seat % 4) - 1], "Empty") == 0)
+   {
+cout<< "Enter passanger's name: ";
+cin>> bus[n].seat[seat / 4][(seat % 4) - 1];
+break;
+   }
+else
+cout<< "The seat no. is already reserved.\n";
+  }
+ }
+if (n>p)
+ {
+cout<< "Enter correct bus no.\n";
+goto top;
+ }
+}
+
+void tick::empty()
+{
+for (int i = 0; i<8;i++)
+ {
+for (int j = 0;j<4;j++)
+  {
+strcpy_s(bus[p].seat[i][j], "Empty");
+  }
+ }
+}
+void tick::show()
+{
+int n;
+char number[5];
+cout<< "Enter bus no: ";
+cin>> number;
+for (n = 0;n <= p;n++)
+ {
+if (strcmp(bus[n].busn, number) == 0)
+break;
+ }
+while (n <= p)
+ {
+vline('*');
+cout<< "Bus no: \t" << bus[n].busn
+<< "\nDriver: \t" << bus[n].driver << "\t\tArrival time: \t"
+<<bus[n].arrival << "\tDeparture time:" << bus[n].depart
+<< "\nFrom: \t\t" << bus[n].from << "\t\tTo: \t\t" <<
+bus[n].to << "\n";
+vline('*');
+bus[0].position(n);
+int a = 1;
+for (int i = 0; i<8; i++)
+  {
+for (int j = 0;j<4;j++)
+   {
+a++;
+if (strcmp(bus[n].seat[i][j], "Empty") != 0)
+cout<< "\nThe seat no " << (a - 1) << " is reserved for " <<
+bus[n].seat[i][j] << ".";
+   }
+  }
+break;
+ }
+if (n>p)
+cout<< "Enter correct bus no: ";
+}
+void tick::position(int l)
+{
+int s = 0;p = 0;
+for (int i = 0; i<8;i++)
+ {
+cout<< "\n";
+for (int j = 0;j<4; j++)
+  {
+s++;
+if (strcmp(bus[l].seat[i][j], "Empty") == 0)
+   {
+cout.width(5);
+cout.fill(' ');
+cout<< s << ".";
+cout.width(10);
+cout.fill(' ');
+cout<< bus[l].seat[i][j];
+p++;
+   }
+else
+   {
+cout.width(5);
+cout.fill(' ');
+cout<< s << ".";
+cout.width(10);
+cout.fill(' ');
+cout<< bus[l].seat[i][j];
+   }
+  }
+ }
+cout<< "\n\nThere are " << p << " seats empty in Bus No: " << bus[l].busn;
+};
+
+classticket_fare:public tick
+{
+protected:
+stringcurrent_stop;
+string destination;
+inttotal_ticket;
+intticket_totalcost;
+int price;
+public:
+ticket_fare()
+ {
+current_stop = "";
+destination = "" ;
+total_ticket = 0;
+ }
+ticket_fare(string m, string n, int s)
+ {
+current_stop= m;
+destination = n;
+total_ticket = s;
+ }
+voiddsp()
+ {
+cout<< "Enter the stop at which you are standing:" << endl;
+cin>>current_stop;
+ }
+voidddp()
+  {
+cout<< "Enter your last stop:" << endl;
+cin>> destination;
+  }
+voiddpp()
+  {
+cout<< "Enter total number of ticket you want to buy:" << endl;
+cin>>total_ticket;
+ }
+intticket_price()
+ {
+	ticket_totalcost=20;
+price = ticket_totalcost*total_ticket;
+return price;
+  }
+intremaining_money()
+ {
+inttotal_amount;
+cout<< " \n enter your amount: " << endl;
+cin>>total_amount;
+intleft_behind_money;
+left_behind_money = total_amount - price;
+returnleft_behind_money;
+}
+};
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+cout<< endl;
+cout<< "\t \t \t \t" << "*****************" << endl;
+cout<< "\t \t \t \t" << "METRO BUS PROJECT" << endl;
+cout<< "\t \t \t \t" << "*****************" << endl;
+cout<< endl;
+cout<< endl;
+cout<< " \t \t SUBMITTED TO: MA'AM " << endl;
+cout<< " \t \t SUBMITTED BY:" << endl;
+cout<< " \t \t SAMRA FAISAL KHAN << endl;
+cout<< " \t \t SADIA AHMED " << endl;
+cout<< " \t \t SOBIA SAJID" << endl;
+cout<< endl;
+cout<< endl;
+cout<< endl;
+cout<< endl;
+sch t1;
+stationst;
+ticket_fare t2;
+int p=0;
+while (1)
+ {
+cout<< "Enter your choice from 1 to 5" << endl;
+cout<< "1) Open the schedule" << endl;
+cout<< "2) Show the availabilty of some next rides(with time and date tags)" << endl;
+cout<< "3) Want to book a ticket" << endl;
+cout<< "4) Calculate the ticket price considering the origin and destination also return   the remaining money" << endl;
+cout<<  "5) Exit"<<endl;
+cout<<endl<<endl;
+	int a;
+cout<< "Enter your choice: ";
+cin>> a;
+switch (a)
+ {
+case 1:
+  t1.time_disp();
+break;
+  // scedule at any station
+case 2:
+	cout<< "\t\t\t" << "Scedule at any station:" << endl;
+intss;
+while (1)
+ {
+	
+cout<<"Enter your choice from 1 to 5"<<endl;
+cout<<"1.Show the routes"<<endl;
+cout<<"2.Show the time for which bus stop at any station"<<endl;
+cout<<"3.Show the time required by bus to travel between any two stations"<<endl;
+cout<<"4.Exit"<<endl;
+cout<<endl<<endl;
+cin>>ss;
+switch(ss)
+ {
+case 1:
+st.route();
+cout<<endl<<endl;
+break;
+case 2:
+st.wait();
+cout<<endl<<endl;
+break;
+case 3:
+st.dis();
+cout<<endl<<endl;
+break;
+case 4:
+	exit(0);
+default:
+	cout<<"Invalid Choice"<<endl;
+ }
+ }
+break;
+case 3:
+cout<< "\t\t\t" << "Ticket Booking" << endl;
+int w; 
+while (1)
+   {
+cout<<endl;
+cout<< "\t\t"<<"1.Install"<<endl;
+cout<< "\t\t"<<"2.Reservation"<<endl;
+cout<<"\t\t"<<"3.Show"<<endl;
+cout<<"\t\t"<<"4.Exit"<<endl;
+cout<< "\n\t\t\tEnter your choice:-> ";
+cin>> w;
+switch (w)
+    {
+case 1:  bus[p].install();
+break;
+case 2:  bus[p].allotment();
+break;
+case 3:  bus[0].show();
+break;
+
+case 4:  exit(0);
+    }
+   }
+
+break;
+case 4:
+	 {	
+t2.dsp();
+cout<< endl;
+t2.ddp();
+cout<< endl;
+t2.dpp();
+cout<< endl;
+ t2.ticket_price();
+cout<< "Tickets are of " << t2.ticket_price() << " rupees. " <<endl;
+cout<< "Your left behind money are: " << t2.remaining_money() << endl;
+cout<<endl<<endl;
+	 }
+	break;
+case 5:
+	exit(0);
+default:
+cout<< "Invalid Choice" << endl;
+ }
+ }
+
+system("pause");
+return 0;
+}
